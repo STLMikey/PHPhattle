@@ -1,0 +1,23 @@
+{
+    "name": "PHPhattle",
+    "description": "Automated PHP WAR!",
+    "keywords": [
+        "php",
+        "war",
+        "tdd"
+    ],
+    "autoload" : {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3"
+    },
+    "require-dev": {
+        "phake/phake":"v1.0.3",
+        "phpunit/phpunit": "3.7.*"
+    }
+}
+
+

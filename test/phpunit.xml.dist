@@ -1,0 +1,25 @@
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="true"
+         bootstrap="phpunit_bootstrap.php">
+        <testsuites>
+            <testsuite name="all">
+                <directory>./</directory>
+            </testsuite>
+        </testsuites>
+
+        <filter>
+            <whitelist addUncoveredFilesFromWhitelist="true">
+                <!--<directory suffix=".php">../module/Root</directory>-->
+                <!--<directory suffix=".php">../lib</directory>-->
+            </whitelist>
+
+        </filter>
+        
+</phpunit>
