@@ -3,10 +3,17 @@
 namespace phattle\models;
 
 class Soldier {
+    private $hit_points = 100;
+    private $damage     = 100;
+    private $coordinate;
 
-    private $hit_points;
-    private $position;
-    private $damage;
+    public function setCoordinate($coordinate) {
+        $this->coordinate = $coordinate;
+    }
+
+    public function getCoordinate() {
+        return $this->coordinate;
+    }
 
     public function setDamage($damage) {
         $this->damage = $damage;
@@ -22,13 +29,5 @@ class Soldier {
 
     public function getHitPoints() {
         return $this->hit_points;
-    }
-
-    public function setPosition($position) {
-        $this->position = $position;
-    }
-
-    public function getPosition() {
-        return $this->position;
     }
 }
