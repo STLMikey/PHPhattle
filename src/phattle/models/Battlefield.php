@@ -22,4 +22,15 @@ class Battlefield {
         return $this->coordinates;
     }
 
+    public function getCoordinate($x, $y){
+        return $this->coordinates[$x][$y];
+    }
+
+    public function getXSize(){
+        return count($this->coordinates);
+    }
+
+    public function getYSize(){
+        return count($this->coordinates[0]);
+    }
 }

@@ -11,31 +11,20 @@ namespace phattle\models;
 
 
 class Coordinate {
+    private $soldier;
 
-//    private $x;
-//    private $y;
-//
-//    public function isOccupied(){
-//        //todo: implement
-//        return false;
-//    }
-//
-//    public function setX($x) {
-//        $this->x = $x;
-//    }
-//
-//    public function getX() {
-//        return $this->x;
-//    }
-//
-//    public function setY($y) {
-//        $this->y = $y;
-//    }
-//
-//    public function getY() {
-//        return $this->y;
-//    }
+    public function isOccupied(){
+        //todo: implement
+        return false;
+    }
 
-private $soldier;
+    public function setSoldier($soldier) {
+        $this->soldier = $soldier;
+    }
+
+    public function getSoldier() {
+        return $this->soldier;
+    }
+
 
 }
