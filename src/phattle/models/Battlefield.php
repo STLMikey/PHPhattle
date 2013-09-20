@@ -33,4 +33,19 @@ class Battlefield {
     public function getYSize(){
         return count($this->coordinates[0]);
     }
+
+    public function toString() {
+        for($x = 0; $x < $this->getXSize(); $x++){
+            for($y = 0; $y < $this->getYSize(); $y++){
+                if($this->getCoordinate($x, $y)->isOccupied()) {
+                    $soldier = $this->getCoordinate($x,$y)->getSoldier();
+                    $army_name = $soldier->getArmyName();
+                    echo '['.strtoupper($army_name[0]).']';
+                }else{
+                    echo '[-]';
+                }
+            }
+            echo PHP_EOL;
+        }
+    }
 }

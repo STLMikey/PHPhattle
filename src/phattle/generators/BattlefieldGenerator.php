@@ -32,26 +32,36 @@ class BattlefieldGenerator {
     }
 
     public function populateBattlefield($battlefield, $armies){
-
-//        $army_a = $armies[0]->getSoldiers();
-//        $army_b = $armies[1]->getSoldiers();
+        $army_a = $armies[0]->getSoldiers();
+        $army_b = $armies[1]->getSoldiers();
 
         $start = 0;
-        foreach($armies as $army){
-            $position = 0;
-            foreach($army->getSoldiers() as $soldier){
-                $battlefield->getCoordinate($start, $position++)->setSoldier($soldier);
+        $position = 0;
+
+        foreach($army_a as $soldier) {
+            if($position >= $battlefield->getXSize()){
+                $start++;
+                $position = 0;
             }
-            $start = $battlefield->getXSize() - 1;
+            $battlefield->getCoordinate($start,$position++)->setSoldier($soldier);
         }
 
-//        for($i = 0; $i <= count($army_a)-1; $i++){
-//            $battlefield->getCoordinate(0,$i)->setSoldier(new Soldier());
-//        }
-//
-//        for($i = count($army_b)-1; $i >= 0; $i--){
-//            $battlefield->getCoordinate(1,$i)->setSoldier(new Soldier());
-//        }
-
+        $start = $battlefield->getXSize() - 1;
+        $position = 0;
+        foreach($army_b as $soldier) {
+            if($position >= $battlefield->getXSize()){
+                $start--;
+                $position = 0;
+            }
+            if($battlefield->getCoordinate($start, $position)->isOccupied()){
+                $position++;
+            }
+            $battlefield->getCoordinate($start,$position++)->setSoldier($soldier);
+        }
     }
+
+
+
+
+
 }

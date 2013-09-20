@@ -128,6 +128,52 @@ class BattlefieldGeneratorTest extends \PHPUnit_Framework_TestCase {
 
     public function testPopulateBattlefieldWillWorkOnBattlefieldsGreaterThanTwoByTwoWithMorSoldiersThanRows() {
         // [A][A][A]
+        // [A][-][-]
+        // [B][B][B]
+        $battlefield = $this->generator->generateBattlefield(3,3);
+
+        $army_generator = new ArmyGenerator();
+        $army_1 = $army_generator->generateArmy('what does the elephant say', 4);
+        $army_2 = $army_generator->generateArmy('toot', 3);
+
+        $this->generator->populateBattlefield($battlefield, array($army_1, $army_2));
+
+        $this->assertNotNull($battlefield->getCoordinate(0,0)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(0,1)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(0,2)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(1,0)->getSoldier());
+        $this->assertNull($battlefield->getCoordinate(1,1)->getSoldier());
+        $this->assertNull($battlefield->getCoordinate(1,2)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(2,0)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(2,1)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(2,2)->getSoldier());
+    }
+
+    public function testPopulateBattlefieldWillWorkOnBattlefieldsGreaterThanTwoByTwoWithMorSoldiersThanRowsOverflowNegatively() {
+        // [A][A][A]
+        // [B][-][-]
+        // [B][B][B]
+        $battlefield = $this->generator->generateBattlefield(3,3);
+
+        $army_generator = new ArmyGenerator();
+        $army_1 = $army_generator->generateArmy('what does the elephant say', 3);
+        $army_2 = $army_generator->generateArmy('toot', 4);
+
+        $this->generator->populateBattlefield($battlefield, array($army_1, $army_2));
+
+        $this->assertNotNull($battlefield->getCoordinate(0,0)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(0,1)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(0,2)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(1,0)->getSoldier());
+        $this->assertNull($battlefield->getCoordinate(1,1)->getSoldier());
+        $this->assertNull($battlefield->getCoordinate(1,2)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(2,0)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(2,1)->getSoldier());
+        $this->assertNotNull($battlefield->getCoordinate(2,2)->getSoldier());
+    }
+
+    public function testPopulateBattlefieldWillWorkOnBattleFieldWithBothRowsOverFlowingOntoSameLine(){
+        // [A][A][A]
         // [A][B][-]
         // [B][B][B]
         $battlefield = $this->generator->generateBattlefield(3,3);

@@ -18,7 +18,9 @@ class ArmyGenerator {
         $army->setName($name);
         $soldiers = array();
         for($i = 0; $i < $size; $i++){
-            $soldiers[] = new Soldier();
+            $soldier =  new Soldier();
+            $soldier->setArmyName($name);
+            $soldiers[] = $soldier;
         }
         $army->setSoldiers($soldiers);
 

@@ -14,8 +14,7 @@ class Coordinate {
     private $soldier;
 
     public function isOccupied(){
-        //todo: implement
-        return false;
+        return $this->soldier != null;
     }
 
     public function setSoldier($soldier) {

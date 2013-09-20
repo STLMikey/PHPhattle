@@ -6,6 +6,8 @@ class Soldier {
     private $hit_points = 100;
     private $damage     = 100;
     private $coordinate;
+    private $army_name;
+
 
     public function setCoordinate($coordinate) {
         $this->coordinate = $coordinate;
@@ -14,6 +16,15 @@ class Soldier {
     public function getCoordinate() {
         return $this->coordinate;
     }
+
+    public function setArmyName($army_name) {
+        $this->army_name = $army_name;
+    }
+
+    public function getArmyName() {
+        return $this->army_name;
+    }
+
 
     public function setDamage($damage) {
         $this->damage = $damage;
