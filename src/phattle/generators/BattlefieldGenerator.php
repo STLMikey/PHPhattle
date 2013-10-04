@@ -43,6 +43,7 @@ class BattlefieldGenerator {
                 $start++;
                 $position = 0;
             }
+            $soldier->setPosition($start, $position);
             $battlefield->getCoordinate($start,$position++)->setSoldier($soldier);
         }
 
@@ -56,6 +57,7 @@ class BattlefieldGenerator {
             if($battlefield->getCoordinate($start, $position)->isOccupied()){
                 $position++;
             }
+            $soldier->setPosition($start, $position);
             $battlefield->getCoordinate($start,$position++)->setSoldier($soldier);
         }
     }

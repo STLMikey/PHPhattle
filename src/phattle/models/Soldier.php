@@ -7,7 +7,15 @@ class Soldier {
     private $damage     = 100;
     private $coordinate;
     private $army_name;
+    private $position;
 
+    public function setPosition($x, $y) {
+        $this->position = array('x' => $x, 'y' => $y);
+    }
+
+    public function getPosition() {
+        return $this->position;
+    }
 
     public function setCoordinate($coordinate) {
         $this->coordinate = $coordinate;
